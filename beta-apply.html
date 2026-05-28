@@ -188,35 +188,67 @@ Submitting does not guarantee acceptance.
 🐵 Monke Shenanigans © 2026 — QelloxStudios
 </footer>
 
-<script>
 const webhookURL = "https://discord.com/api/webhooks/1509378374210945115/WgfW78G55iXyUyb1iglDggFvhhRKhNpJJgXQg0qyj3Ym38IZ5be4Qvk9mfY4WMr1Srn3";
 
 document.getElementById("applicationForm").addEventListener("submit", async function(e)
 {
     e.preventDefault();
 
-    const data = {
-        content:
-`🧪 **New Beta Tester Application**
+    const embed =
+    {
+        title: "🧪 New Beta Tester Application!",
+        color: 0xd97634,
 
-👤 **Discord Username:** ${document.getElementById("discord").value}
+        fields:
+        [
+            {
+                name: "👤 Discord Username",
+                value: document.getElementById("discord").value || "N/A",
+                inline: false
+            },
+            {
+                name: "🎂 Age",
+                value: document.getElementById("age").value || "N/A",
+                inline: true
+            },
+            {
+                name: "🥽 VR Headset",
+                value: document.getElementById("headset").value || "N/A",
+                inline: true
+            },
+            {
+                name: "🎮 Experience",
+                value: document.getElementById("experience").value || "N/A",
+                inline: false
+            },
+            {
+                name: "⏰ Activity Level",
+                value: document.getElementById("activity").value || "N/A",
+                inline: true
+            },
+            {
+                name: "🐵 Why do you want to beta test?",
+                value: document.getElementById("reason").value || "N/A",
+                inline: false
+            },
+            {
+                name: "🐛 Good at finding bugs/feedback?",
+                value: document.getElementById("bugs").value || "N/A",
+                inline: false
+            },
+            {
+                name: "📱 Can record videos/screenshots?",
+                value: document.getElementById("recording").value || "N/A",
+                inline: true
+            }
+        ],
 
-🎂 **Age:** ${document.getElementById("age").value}
+        footer:
+        {
+            text: "Monke Shenanigans Beta Application"
+        },
 
-🥽 **VR Headset:** ${document.getElementById("headset").value}
-
-🎮 **Experience:**
-${document.getElementById("experience").value}
-
-⏰ **Activity Level:** ${document.getElementById("activity").value}
-
-🐵 **Reason For Applying:**
-${document.getElementById("reason").value}
-
-🐛 **Bug Finding / Feedback Skills:**
-${document.getElementById("bugs").value}
-
-📱 **Can Record Videos/Screenshots:** ${document.getElementById("recording").value}`
+        timestamp: new Date().toISOString()
     };
 
     try
@@ -228,7 +260,9 @@ ${document.getElementById("bugs").value}
             {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                embeds: [embed]
+            })
         });
 
         document.getElementById("successMessage").style.display = "block";
@@ -241,7 +275,6 @@ ${document.getElementById("bugs").value}
         console.error(error);
     }
 });
-</script>
 
 </body>
 </html>
