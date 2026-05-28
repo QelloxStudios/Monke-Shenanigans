@@ -8,106 +8,99 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    margin:0;
-    background:#1a1a1a;
-    color:white;
-    font-family:'Poppins',sans-serif;
+body {
+    margin: 0;
+    background: #1a1a1a;
+    color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
-header{
-    background:#d97634;
-    padding:40px 20px;
-    text-align:center;
+header {
+    background: #d97634;
+    padding: 35px;
+    text-align: center;
 }
 
-h1{
-    margin:0;
-    font-size:42px;
+h1 {
+    margin: 0;
+    font-size: 40px;
 }
 
-.subtitle{
-    opacity:.85;
-    margin-top:10px;
+.subtitle {
+    opacity: 0.8;
+    margin-top: 10px;
 }
 
-.container{
-    max-width:800px;
-    margin:auto;
-    padding:40px 20px;
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
 }
 
-.card{
-    background:#262626;
-    padding:25px;
-    border-radius:14px;
+.card {
+    background: #262626;
+    padding: 25px;
+    border-radius: 14px;
 }
 
-label{
-    display:block;
-    margin-top:18px;
-    margin-bottom:8px;
-    font-weight:600;
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
-input,
-textarea,
-select{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:#1f1f1f;
-    color:white;
-    font-size:15px;
-    font-family:'Poppins',sans-serif;
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1f1f1f;
+    color: white;
+    font-size: 15px;
 }
 
-textarea{
-    resize:vertical;
-    min-height:120px;
+textarea {
+    min-height: 110px;
+    resize: vertical;
 }
 
-button{
-    margin-top:24px;
-    padding:14px 28px;
-    border:none;
-    border-radius:10px;
-    background:#d97634;
-    color:white;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.2s;
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #d97634;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-button:hover{
-    background:#c4652a;
-    transform:scale(1.03);
+button:hover {
+    background: #c4652a;
 }
 
-.note{
-    opacity:.7;
-    font-size:14px;
-    margin-top:12px;
+.success {
+    display: none;
+    margin-top: 15px;
+    color: lightgreen;
+    font-weight: 600;
 }
 
-.success{
-    margin-top:20px;
-    color:#4caf50;
-    font-weight:600;
-    display:none;
-}
-
-footer{
-    text-align:center;
-    opacity:.6;
-    padding:30px;
-    font-size:14px;
+.fake-buttons {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+    background: #1f1f1f;
+    padding: 10px;
+    border-radius: 8px;
 }
 </style>
 </head>
@@ -116,165 +109,119 @@ footer{
 
 <header>
 <h1>🧪 Beta Tester Application</h1>
-<p class="subtitle">
-Apply to become a beta tester for Monke Shenanigans
-</p>
+<p class="subtitle">Monke Shenanigans Application Form</p>
 </header>
 
 <div class="container">
-
 <div class="card">
 
 <form id="applicationForm">
 
-<label>👤 What's your Discord username?</label>
-<input type="text" id="discord" required placeholder="example: @qelloxofficial">
+<label>Discord Username</label>
+<input id="discord" required>
 
-<label>🎂 How old are you?</label>
-<input type="number" id="age" required placeholder="Your age">
+<label>Age</label>
+<input id="age" type="number" required>
 
-<label>🥽 What VR headset do you use?</label>
+<label>VR Headset</label>
 <select id="headset">
-<option>Meta Quest 2</option>
-<option>Meta Quest 3</option>
-<option>Meta Quest 3S</option>
+<option>Quest 2</option>
+<option>Quest 3</option>
 <option>PCVR</option>
 <option>Other</option>
 </select>
 
-<label>🎮 Have you played Gorilla Tag or similar games before?</label>
-<textarea id="experience" required placeholder="Tell us about your experience..."></textarea>
+<label>Experience</label>
+<textarea id="experience" required></textarea>
 
-<label>⏰ How active are you?</label>
+<label>Activity Level</label>
 <select id="activity">
 <option>Very Active</option>
 <option>Active</option>
-<option>Sometimes Active</option>
+<option>Casual</option>
 <option>Rarely Active</option>
 </select>
 
-<label>🐵 Why do you want to beta test Monke Shenanigans?</label>
-<textarea id="reason" required placeholder="Tell us why you'd be a good tester..."></textarea>
+<label>Why do you want to join?</label>
+<textarea id="reason" required></textarea>
 
-<label>🐛 Are you good at finding bugs or giving feedback?</label>
-<textarea id="bugs" required placeholder="Explain here..."></textarea>
+<label>Bug finding ability</label>
+<textarea id="bugs" required></textarea>
 
-<label>📱 Can you record videos/screenshots if needed?</label>
+<label>Recording ability</label>
 <select id="recording">
 <option>Yes</option>
 <option>No</option>
 <option>Sometimes</option>
 </select>
 
-<button type="submit">
-🚀 Submit Application
-</button>
+<!-- FAKE BUTTON UI -->
+<div class="fake-buttons">
+🟩 ACCEPT APPLICATION<br>
+🟥 REJECT APPLICATION<br>
+👉 (Staff review in Discord)
+</div>
+
+<button type="submit">🚀 Submit Application</button>
 
 <div class="success" id="successMessage">
 ✅ Application submitted successfully!
 </div>
 
-<p class="note">
-Submitting does not guarantee acceptance.
-</p>
-
 </form>
 
 </div>
-
 </div>
 
-<footer>
-🐵 Monke Shenanigans © 2026 — QelloxStudios
+<footer style="text-align:center;opacity:0.6;padding:20px;">
+🐵 Monke Shenanigans © 2026
 </footer>
 
-const webhookURL = "https://discord.com/api/webhooks/1509378374210945115/WgfW78G55iXyUyb1iglDggFvhhRKhNpJJgXQg0qyj3Ym38IZ5be4Qvk9mfY4WMr1Srn3";
+<script>
+const webhookURL = "PUT_YOUR_NEW_WEBHOOK_HERE";
 
-document.getElementById("applicationForm").addEventListener("submit", async function(e)
-{
+let sending = false;
+
+document.getElementById("applicationForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const embed =
-    {
+    if (sending) return;
+    sending = true;
+
+    const embed = {
         title: "🧪 New Beta Tester Application!",
         color: 0xd97634,
-
-        fields:
-        [
-            {
-                name: "👤 Discord Username",
-                value: document.getElementById("discord").value || "N/A",
-                inline: false
-            },
-            {
-                name: "🎂 Age",
-                value: document.getElementById("age").value || "N/A",
-                inline: true
-            },
-            {
-                name: "🥽 VR Headset",
-                value: document.getElementById("headset").value || "N/A",
-                inline: true
-            },
-            {
-                name: "🎮 Experience",
-                value: document.getElementById("experience").value || "N/A",
-                inline: false
-            },
-            {
-                name: "⏰ Activity Level",
-                value: document.getElementById("activity").value || "N/A",
-                inline: true
-            },
-            {
-                name: "🐵 Why do you want to beta test?",
-                value: document.getElementById("reason").value || "N/A",
-                inline: false
-            },
-            {
-                name: "🐛 Good at finding bugs/feedback?",
-                value: document.getElementById("bugs").value || "N/A",
-                inline: false
-            },
-            {
-                name: "📱 Can record videos/screenshots?",
-                value: document.getElementById("recording").value || "N/A",
-                inline: true
-            }
+        fields: [
+            { name: "👤 Discord", value: document.getElementById("discord").value || "N/A" },
+            { name: "🎂 Age", value: document.getElementById("age").value || "N/A", inline: true },
+            { name: "🥽 Headset", value: document.getElementById("headset").value || "N/A", inline: true },
+            { name: "🎮 Experience", value: document.getElementById("experience").value || "N/A" },
+            { name: "⏰ Activity", value: document.getElementById("activity").value || "N/A", inline: true },
+            { name: "🐵 Reason", value: document.getElementById("reason").value || "N/A" },
+            { name: "🐛 Bugs", value: document.getElementById("bugs").value || "N/A" },
+            { name: "📱 Recording", value: document.getElementById("recording").value || "N/A", inline: true }
         ],
-
-        footer:
-        {
-            text: "Monke Shenanigans Beta Application"
-        },
-
+        description: "🟩 ACCEPT | 🟥 REJECT (React or review in Discord)",
         timestamp: new Date().toISOString()
     };
 
-    try
-    {
-        await fetch(webhookURL,
-        {
+    try {
+        await fetch(webhookURL, {
             method: "POST",
-            headers:
-            {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                embeds: [embed]
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ embeds: [embed] })
         });
 
         document.getElementById("successMessage").style.display = "block";
-
         document.getElementById("applicationForm").reset();
-    }
-    catch(error)
-    {
+
+    } catch (err) {
         alert("Failed to submit application.");
-        console.error(error);
     }
+
+    sending = false;
 });
+</script>
 
 </body>
 </html>
