@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beta Tester Application | Monke Shenanigans</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#1a1a1a;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+header{
+    background:#d97634;
+    padding:40px 20px;
+    text-align:center;
+}
+
+h1{
+    margin:0;
+    font-size:42px;
+}
+
+.subtitle{
+    opacity:.85;
+    margin-top:10px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:#262626;
+    padding:25px;
+    border-radius:14px;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#1f1f1f;
+    color:white;
+    font-size:15px;
+    font-family:'Poppins',sans-serif;
+}
+
+textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+button{
+    margin-top:24px;
+    padding:14px 28px;
+    border:none;
+    border-radius:10px;
+    background:#d97634;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:#c4652a;
+    transform:scale(1.03);
+}
+
+.note{
+    opacity:.7;
+    font-size:14px;
+    margin-top:12px;
+}
+
+.success{
+    margin-top:20px;
+    color:#4caf50;
+    font-weight:600;
+    display:none;
+}
+
+footer{
+    text-align:center;
+    opacity:.6;
+    padding:30px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🧪 Beta Tester Application</h1>
+<p class="subtitle">
+Apply to become a beta tester for Monke Shenanigans
+</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<form id="applicationForm">
+
+<label>👤 What's your Discord username?</label>
+<input type="text" id="discord" required placeholder="example: @qelloxofficial">
+
+<label>🎂 How old are you?</label>
+<input type="number" id="age" required placeholder="Your age">
+
+<label>🥽 What VR headset do you use?</label>
+<select id="headset">
+<option>Meta Quest 2</option>
+<option>Meta Quest 3</option>
+<option>Meta Quest 3S</option>
+<option>PCVR</option>
+<option>Other</option>
+</select>
+
+<label>🎮 Have you played Gorilla Tag or similar games before?</label>
+<textarea id="experience" required placeholder="Tell us about your experience..."></textarea>
+
+<label>⏰ How active are you?</label>
+<select id="activity">
+<option>Very Active</option>
+<option>Active</option>
+<option>Sometimes Active</option>
+<option>Rarely Active</option>
+</select>
+
+<label>🐵 Why do you want to beta test Monke Shenanigans?</label>
+<textarea id="reason" required placeholder="Tell us why you'd be a good tester..."></textarea>
+
+<label>🐛 Are you good at finding bugs or giving feedback?</label>
+<textarea id="bugs" required placeholder="Explain here..."></textarea>
+
+<label>📱 Can you record videos/screenshots if needed?</label>
+<select id="recording">
+<option>Yes</option>
+<option>No</option>
+<option>Sometimes</option>
+</select>
+
+<button type="submit">
+🚀 Submit Application
+</button>
+
+<div class="success" id="successMessage">
+✅ Application submitted successfully!
+</div>
+
+<p class="note">
+Submitting does not guarantee acceptance.
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+<footer>
+🐵 Monke Shenanigans © 2026 — QelloxStudios
+</footer>
+
+<script>
+const webhookURL = "https://discord.com/api/webhooks/1509378374210945115/WgfW78G55iXyUyb1iglDggFvhhRKhNpJJgXQg0qyj3Ym38IZ5be4Qvk9mfY4WMr1Srn3";
+
+document.getElementById("applicationForm").addEventListener("submit", async function(e)
+{
+    e.preventDefault();
+
+    const data = {
+        content:
+`🧪 **New Beta Tester Application**
+
+👤 **Discord Username:** ${document.getElementById("discord").value}
+
+🎂 **Age:** ${document.getElementById("age").value}
+
+🥽 **VR Headset:** ${document.getElementById("headset").value}
+
+🎮 **Experience:**
+${document.getElementById("experience").value}
+
+⏰ **Activity Level:** ${document.getElementById("activity").value}
+
+🐵 **Reason For Applying:**
+${document.getElementById("reason").value}
+
+🐛 **Bug Finding / Feedback Skills:**
+${document.getElementById("bugs").value}
+
+📱 **Can Record Videos/Screenshots:** ${document.getElementById("recording").value}`
+    };
+
+    try
+    {
+        await fetch(webhookURL,
+        {
+            method: "POST",
+            headers:
+            {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        document.getElementById("successMessage").style.display = "block";
+
+        document.getElementById("applicationForm").reset();
+    }
+    catch(error)
+    {
+        alert("Failed to submit application.");
+        console.error(error);
+    }
+});
+</script>
+
+</body>
+</html>
